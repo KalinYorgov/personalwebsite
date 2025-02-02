@@ -1,0 +1,79 @@
+## Product/Site Name
+Kalin Yorgov - Personal Website
+
+## One-Line Project Description
+A personal portfolio website showcasing Kalin Yorgov’s CV, projects, AI prompts, and blog insights, built using React and modern web technologies.
+
+## Important Rules You HAVE TO FOLLOW
+1. Follow best practices for React component structuring and separation of concerns.
+2. Use semantic HTML to improve accessibility and SEO.
+3. Maintain a consistent design language with Tailwind CSS.
+4. Ensure responsiveness across desktop, tablet, and mobile devices.
+5. Optimize images and assets for fast loading times.
+6. Implement clean and reusable code with proper documentation.
+7. Use Git for version control and maintain feature branches.
+8. Keep the blog section toggled off by default unless there is content.
+9. Ensure navigation is intuitive and user-friendly.
+10. Protect sensitive information by using environment variables where needed.
+
+## Existing Project Structure
+```
+personalwebsite/
+├── instructions/
+│   ├── instructions.md
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── assets/
+│       ├── profile.jpg
+│       └── project-images/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Home.jsx
+│   │   ├── CV.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Prompts.jsx
+│   │   └── Blog.jsx
+│   ├── App.jsx
+│   ├── index.js
+│   ├── styles/
+│   │   └── global.css
+│   └── data/
+│       ├── cv.json
+│       ├── projects.json
+│       ├── prompts.json
+│       └── blogs.json
+├── package.json
+├── .gitignore
+├── .cursorrules
+└── README.md
+```
+
+## Tech Stack
+- **Frontend**: React, React Router, Tailwind CSS, Framer Motion (for animations)
+- **Backend (Optional for future use)**: Node.js, Express.js (if required for blog content management)
+- **Data Management**: Static JSON files (cv.json, projects.json, prompts.json, blogs.json)
+- **Hosting**: Netlify, Vercel, or GitHub Pages
+- **Version Control**: Git, GitHub
+- **Development Tools**: VS Code, ESLint, Prettier
+
+## Program Language Specific Rules
+### 1. State Management
+- Use React state (`useState`, `useContext`, `useReducer`) appropriately.
+- Global state should be managed using React Context API (or Redux if complexity increases).
+- Keep local component state separate from shared/global state.
+- Use `useEffect` cautiously to avoid unnecessary re-renders.
+
+### 2. Performance Optimization
+- Lazy load images and components where applicable.
+- Use React.memo and useCallback to optimize re-rendering.
+- Avoid unnecessary API calls and use caching techniques where needed.
+- Minimize inline functions inside JSX.
+- Optimize large lists with virtualization (e.g., react-window).
+
+### 3. Lifecycle
+- Ensure cleanup of side effects in `useEffect` hooks.
+- Use `useRef` for persistent values across renders when needed.
+- Follow best practices for handling component mounting and unmounting.

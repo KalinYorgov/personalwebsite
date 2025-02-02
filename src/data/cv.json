@@ -1,0 +1,61 @@
+{
+  "name": "Kalin Yorgov",
+  "title": "B2C Commerce Architect | Salesforce Commerce Cloud Developer | React-Native Developer",
+  "contact": {
+    "phone": "+359 884 866 690",
+    "email": "kalinyorgov@gmail.com",
+    "linkedin": "LinkedIn Profile",
+    "github": "GitHub Profile",
+    "location": "Sofia, Bulgaria"
+  },
+  "summary": "Highly skilled Salesforce Commerce Cloud Developer and certified B2C Commerce Architect with extensive experience in e-commerce development and optimization. Adept at integrating payment systems, improving site performance, and delivering customized solutions. Passionate about emerging technologies such as AI and mobile development, with recent training in React-Native.",
+  "certifications": [
+    "Salesforce Certified B2C Commerce Developer",
+    "Salesforce Certified B2C Commerce Architect"
+  ],
+  "experience": [
+    {
+      "title": "Salesforce Commerce Cloud Developer",
+      "company": "Merkle Bulgaria",
+      "achievements": [
+        "Optimized LaPrairie site speed and performance",
+        "Enhanced user experience by adding features and refining code"
+      ]
+    },
+    {
+      "title": "Salesforce Commerce Cloud Developer Contractor",
+      "company": "ESPRIT",
+      "achievements": [
+        "Implemented \"EASY PAY\" and Korean payment methods",
+        "Developed Korean address validation and autofill APIs"
+      ]
+    },
+    {
+      "title": "Salesforce Commerce Cloud Developer Contractor",
+      "company": "VASS",
+      "achievements": [
+        "Built custom checkout and pricebook solutions for Ocaso site",
+        "Designed customer group-specific accessibility features"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI Integration Contest",
+      "description": "Advanced AI coding and integration in a competitive 3-day event"
+    },
+    {
+      "name": "React-Native Bootcamp",
+      "description": "Comprehensive training in React-Native mobile development"
+    }
+  ],
+  "skills": {
+    "programming": ["Go", "JavaScript", "Kotlin", "Python", "Node.js", "React-Native"],
+    "tools": ["SFCC/Demandware", "Selenium", "Git", "Bitbucket", "Jenkins"]
+  },
+  "education": [
+    "Salesforce Developer Course",
+    "JavaScript Course (ES6 and Node.js)",
+    "React-Native Bootcamp"
+  ]
+} 
