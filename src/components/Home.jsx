@@ -1,88 +1,109 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Card } from './ui/card';
+import { useRef } from 'react';
 
 const Home = () => {
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <motion.section 
-        className="py-20 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.h1 
-          className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+      <main className="relative">
+        <section
+          ref={scrollRef}
+          className="min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
         >
-          Hi, I'm Kalin Yorgov
-        </motion.h1>
-        <motion.p 
-          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          Full Stack Developer & AI Enthusiast
-        </motion.p>
-      </motion.section>
+          <motion.div style={{ opacity, scale }} className="text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-sm uppercase tracking-[0.2em] text-gold mb-6"
+            >
+              Full Stack Developer & AI Enthusiast
+            </motion.h2>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl md:text-7xl font-light tracking-tight mb-8 text-deepblue dark:text-cream"
+            >
+              Kalin Yorgov
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="h-px w-24 bg-gold mx-auto"
+            />
+          </motion.div>
+        </section>
 
-      {/* Quick Links Section */}
-      <motion.section 
-        className="py-12"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
-          <Link to="/cv" className="group">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">CV</h2>
-              <p className="text-gray-600 dark:text-gray-300">View my professional experience and skills</p>
-            </div>
-          </Link>
-          
-          <Link to="/projects" className="group">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Projects</h2>
-              <p className="text-gray-600 dark:text-gray-300">Explore my latest work and contributions</p>
-            </div>
-          </Link>
-          
-          <Link to="/prompts" className="group">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">AI Prompts</h2>
-              <p className="text-gray-600 dark:text-gray-300">Discover effective AI development prompts</p>
-            </div>
-          </Link>
-          
-          <Link to="/blog" className="group">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Blog</h2>
-              <p className="text-gray-600 dark:text-gray-300">Read my thoughts and insights</p>
-            </div>
-          </Link>
-        </div>
-      </motion.section>
+        <section className="max-w-4xl mx-auto px-4 py-24">
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "Experience", desc: "Professional journey" },
+              { title: "Projects", desc: "Showcase of work" },
+              { title: "Skills", desc: "Technical expertise" },
+              { title: "AI Prompts", desc: "Effective prompts collection" }
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Link to={`/${item.title.toLowerCase()}`}>
+                  <Card className="group relative overflow-hidden backdrop-blur-md bg-cream/30 dark:bg-olivegreen/30 border-gold/20 hover:border-gold/50 transition-colors">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-deepblue/5 dark:from-gold/10 dark:to-cream/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="p-6 text-center">
+                      <h3 className="text-xl font-light tracking-wide mb-2 text-deepblue dark:text-cream group-hover:text-gold transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-deepblue/70 dark:text-cream/90">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
-      {/* About Section */}
-      <motion.section 
-        className="py-12 bg-gray-50 dark:bg-gray-800 transition-colors duration-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">About Me</h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-          I’m a Salesforce Commerce Cloud Developer and B2C Commerce Architect with experience in optimizing high-traffic e-commerce platforms, integrating payment systems, and improving site performance. I specialize in React-Native, JavaScript, and AI-driven solutions, developing scalable and efficient digital commerce systems.
-          <br></br>My work includes building custom checkout solutions, refining user experiences, and solving complex technical challenges to ensure smooth and reliable online transactions. I focus on delivering practical, high-quality solutions that meet business needs and improve overall system efficiency.
-          </p>
-        </div>
-      </motion.section>
+        <section className="max-w-3xl mx-auto px-4 pb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }}
+          >
+            <Card className="backdrop-blur-md bg-cream/30 dark:bg-olivegreen/30 border-gold/20">
+              <div className="p-8 text-center">
+                <h2 className="text-3xl font-light tracking-tight mb-6 text-deepblue dark:text-cream">About Me</h2>
+                <div className="space-y-4 text-deepblue/80 dark:text-cream/90">
+                  <p>
+                    As a Salesforce Commerce Cloud Developer and B2C Commerce Architect, I specialize in crafting
+                    bespoke e-commerce solutions that blend cutting-edge technology with elegant user experiences.
+                  </p>
+                  <p>
+                    My expertise lies in developing sophisticated, scalable systems that not only meet but exceed the
+                    expectations of discerning clients. With a focus on React-Native, JavaScript, and AI-driven
+                    solutions, I create digital experiences that are as beautiful as they are functional.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </section>
+      </main>
     </div>
   );
 };

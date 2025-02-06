@@ -24,45 +24,43 @@ const Experience = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto py-8"
+      className="max-w-4xl mx-auto py-8 mt-24"
     >
       {/* Header Section */}
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{cvData.name}</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">{cvData.title}</p>
-        <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <h1 className="text-4xl font-bold mb-4 text-deepblue dark:text-cream">{cvData.name}</h1>
+        <p className="text-xl text-deepblue/80 dark:text-cream/80 mb-4">{cvData.title}</p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-deepblue/70 dark:text-cream/70">
           <p>📍 {cvData.contact.location}</p>
           <p>📱 {cvData.contact.phone}</p>
           <p>📧 {cvData.contact.email}</p>
-          <a href={cvData.contact.linkedin} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">LinkedIn</a>
-          <a href={cvData.contact.github} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">GitHub</a>
+          <a href={cvData.contact.linkedin} className="hover:text-gold transition-colors duration-200">LinkedIn</a>
+          <a href={cvData.contact.github} className="hover:text-gold transition-colors duration-200">GitHub</a>
         </div>
       </header>
 
-      {/* Summary Section */}
+      {/* Rest of the sections with updated colors */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Professional Summary</h2>
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{cvData.summary}</p>
+        <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Professional Summary</h2>
+        <p className="text-deepblue/80 dark:text-cream/80 leading-relaxed">{cvData.summary}</p>
       </section>
 
-      {/* Certifications Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Certifications</h2>
-        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+        <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Certifications</h2>
+        <ul className="list-disc list-inside text-deepblue/80 dark:text-cream/80">
           {cvData.certifications.map((cert, index) => (
             <li key={index} className="mb-2">{cert}</li>
           ))}
         </ul>
       </section>
 
-      {/* Experience Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Experience</h2>
+        <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Experience</h2>
         {cvData.experience.map((exp, index) => (
           <div key={index} className="mb-6">
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{exp.title}</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-2">{exp.company}</p>
-            <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <h3 className="text-xl font-semibold text-deepblue dark:text-cream">{exp.title}</h3>
+            <p className="text-deepblue/70 dark:text-cream/70 mb-2">{exp.company}</p>
+            <ul className="list-disc list-inside text-deepblue/80 dark:text-cream/80">
               {exp.achievements.map((achievement, idx) => (
                 <li key={idx} className="mb-1">{achievement}</li>
               ))}
@@ -71,30 +69,28 @@ const Experience = () => {
         ))}
       </section>
 
-      {/* Projects Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Projects</h2>
+        <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {cvData.projects.map((project, index) => (
-            <div key={index} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{project.name}</h3>
-              <p className="text-gray-700 dark:text-gray-300">{project.description}</p>
+            <div key={index} className="bg-cream/30 dark:bg-olivegreen/30 p-4 rounded-lg backdrop-blur-md">
+              <h3 className="text-xl font-semibold mb-2 text-deepblue dark:text-cream">{project.name}</h3>
+              <p className="text-deepblue/80 dark:text-cream/80">{project.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Skills Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Skills</h2>
+        <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Programming</h3>
+            <h3 className="text-xl font-semibold mb-2 text-deepblue dark:text-cream">Programming</h3>
             <div className="flex flex-wrap gap-2">
               {cvData.skills.programming.map((skill, index) => (
                 <span
                   key={index}
-                  className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm"
+                  className="bg-cream/50 dark:bg-olivegreen/50 text-deepblue dark:text-cream px-3 py-1 rounded-full text-sm backdrop-blur-md"
                 >
                   {skill}
                 </span>
@@ -102,12 +98,12 @@ const Experience = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Tools</h3>
+            <h3 className="text-xl font-semibold mb-2 text-deepblue dark:text-cream">Tools</h3>
             <div className="flex flex-wrap gap-2">
               {cvData.skills.tools.map((tool, index) => (
                 <span
                   key={index}
-                  className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm"
+                  className="bg-cream/50 dark:bg-olivegreen/50 text-deepblue dark:text-cream px-3 py-1 rounded-full text-sm backdrop-blur-md"
                 >
                   {tool}
                 </span>
@@ -117,10 +113,9 @@ const Experience = () => {
         </div>
       </section>
 
-      {/* Education Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Education</h2>
-        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+        <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Education</h2>
+        <ul className="list-disc list-inside text-deepblue/80 dark:text-cream/80">
           {cvData.education.map((edu, index) => (
             <li key={index} className="mb-2">{edu}</li>
           ))}

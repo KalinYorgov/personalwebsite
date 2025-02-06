@@ -7,13 +7,13 @@ const Projects = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-6xl mx-auto py-8"
+      className="max-w-6xl mx-auto py-8 mt-32"
     >
-      <h1 className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white">Projects</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center text-deepblue dark:text-cream">Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-all duration-300">
-          <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Coming Soon</h2>
-          <p className="text-gray-600 dark:text-gray-300">Project details will be added here.</p>
+        <div className="bg-cream/30 dark:bg-olivegreen/30 p-6 rounded-lg shadow-lg backdrop-blur-md transition-all duration-300">
+          <h2 className="text-xl font-semibold mb-4 text-deepblue dark:text-cream">Coming Soon</h2>
+          <p className="text-deepblue/80 dark:text-cream/80">Project details will be added here.</p>
         </div>
       </div>
     </motion.div>
