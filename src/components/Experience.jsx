@@ -1,24 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import cvData from '../data/cv.json';
 
 const Experience = () => {
-  const [cvData, setCvData] = useState(null);
-
-  useEffect(() => {
-    fetch('/src/data/cv.json')
-      .then((response) => response.json())
-      .then((data) => setCvData(data))
-      .catch((error) => console.error('Error loading CV data:', error));
-  }, []);
-
-  if (!cvData) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
