@@ -51,8 +51,7 @@ const Home = () => {
             {[
               { title: "Experience", desc: "Professional journey" },
               { title: "Projects", desc: "Showcase of work" },
-              { title: "Skills", desc: "Technical expertise" },
-              { title: "AI Prompts", desc: "Effective prompts collection" }
+              { title: "Prompts", desc: "AI prompts & insights" }
             ].map((item, i) => (
               <motion.div
                 key={item.title}

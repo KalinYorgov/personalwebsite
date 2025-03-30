@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import cvData from '../data/cv.json';
 
 const Experience = () => {
+  // Add useEffect to reset scroll position on component mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
