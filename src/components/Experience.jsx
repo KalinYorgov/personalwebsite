@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import cvData from '../data/cv.json';
+import { Card } from './ui/card';
 
 const Experience = () => {
   // Add useEffect to reset scroll position on component mount
@@ -58,47 +59,88 @@ const Experience = () => {
         ))}
       </section>
 
+      {/* Updated Projects Section with enhanced depth and shadow */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {cvData.projects.map((project, index) => (
-            <div key={index} className="bg-cream/30 dark:bg-olivegreen/30 p-4 rounded-lg backdrop-blur-md">
-              <h3 className="text-xl font-semibold mb-2 text-deepblue dark:text-cream">{project.name}</h3>
-              <p className="text-deepblue/80 dark:text-cream/80">{project.description}</p>
-            </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              <Card className="group relative overflow-hidden backdrop-blur-md bg-cream/30 dark:bg-olivegreen/30 border-gold/20 hover:border-gold/50 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.07)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-deepblue/5 dark:from-gold/10 dark:to-cream/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-light tracking-wide mb-2 text-deepblue dark:text-cream group-hover:text-gold transition-colors">
+                    {project.name}
+                  </h3>
+                  <p className="text-sm text-deepblue/70 dark:text-cream/90">
+                    {project.description}
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </section>
 
+      {/* Updated Skills Section with enhanced depth and shadow */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4 text-deepblue dark:text-cream">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="text-xl font-semibold mb-2 text-deepblue dark:text-cream">Programming</h3>
-            <div className="flex flex-wrap gap-2">
-              {cvData.skills.programming.map((skill, index) => (
-                <span
-                  key={index}
-                  className="bg-cream/50 dark:bg-olivegreen/50 text-deepblue dark:text-cream px-3 py-1 rounded-full text-sm backdrop-blur-md"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2 text-deepblue dark:text-cream">Tools</h3>
-            <div className="flex flex-wrap gap-2">
-              {cvData.skills.tools.map((tool, index) => (
-                <span
-                  key={index}
-                  className="bg-cream/50 dark:bg-olivegreen/50 text-deepblue dark:text-cream px-3 py-1 rounded-full text-sm backdrop-blur-md"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          >
+            <Card className="group relative overflow-hidden backdrop-blur-md bg-cream/30 dark:bg-olivegreen/30 border-gold/20 hover:border-gold/50 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.07)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-deepblue/5 dark:from-gold/10 dark:to-cream/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="p-6">
+                <h3 className="text-xl font-light tracking-wide mb-2 text-center text-deepblue dark:text-cream group-hover:text-gold transition-colors">
+                  Programming
+                </h3>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {cvData.skills.programming.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="bg-cream/50 dark:bg-olivegreen/50 text-deepblue dark:text-cream px-3 py-1 rounded-full text-sm backdrop-blur-md border border-gold/10 shadow-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          >
+            <Card className="group relative overflow-hidden backdrop-blur-md bg-cream/30 dark:bg-olivegreen/30 border-gold/20 hover:border-gold/50 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.07)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-deepblue/5 dark:from-gold/10 dark:to-cream/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="p-6">
+                <h3 className="text-xl font-light tracking-wide mb-2 text-center text-deepblue dark:text-cream group-hover:text-gold transition-colors">
+                  Tools
+                </h3>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {cvData.skills.tools.map((tool, index) => (
+                    <span
+                      key={index}
+                      className="bg-cream/50 dark:bg-olivegreen/50 text-deepblue dark:text-cream px-3 py-1 rounded-full text-sm backdrop-blur-md border border-gold/10 shadow-sm"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
