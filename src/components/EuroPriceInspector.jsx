@@ -203,6 +203,15 @@ const EuroPriceInspector = () => {
           </div>
         </Card>
       </section>
+
+      <section className="mb-12 text-center">
+        <Link 
+          to="/projects/europrice-inspector/privacy-policy" 
+          className="inline-flex items-center px-6 py-3 bg-gold/20 hover:bg-gold/30 backdrop-blur-md border border-gold/40 rounded-lg text-deepblue dark:text-cream font-semibold transition-all duration-300 hover:shadow-lg"
+        >
+          Privacy Policy
+        </Link>
+      </section>
     </motion.div>
   );
 };
