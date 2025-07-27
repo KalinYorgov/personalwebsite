@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Prompts from './components/Prompts';
 import Blog from './components/Blog';
+import EuroPriceInspector from './components/EuroPriceInspector';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/experience" element={<Experience />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/europrice-inspector" element={<EuroPriceInspector />} />
                 <Route path="/prompts" element={<Prompts />} />
                 <Route path="/blog" element={<Blog />} />
               </Routes>
