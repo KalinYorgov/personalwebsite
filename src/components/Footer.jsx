@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin } from 'lucide-react';
+import { SiX } from '@icons-pack/react-simple-icons';
 
 const Footer = () => {
   return (
@@ -21,6 +22,14 @@ const Footer = () => {
             className="text-deepblue hover:text-gold dark:text-cream dark:hover:text-gold transition-colors"
           >
             <Linkedin className="h-5 w-5" />
+          </a>
+          <a
+            href="https://x.com/KalinYorgov"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-deepblue hover:text-gold dark:text-cream dark:hover:text-gold transition-colors"
+          >
+            <SiX size={20} color="currentColor" />
           </a>
         </div>
       </div>
