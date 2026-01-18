@@ -11,6 +11,7 @@ import Prompts from './components/Prompts';
 import Blog from './components/Blog';
 import EuroPriceInspector from './components/EuroPriceInspector';
 import EuroPricePrivacyPolicy from './components/EuroPricePrivacyPolicy';
+import NameVoxel from './components/NameVoxel';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/europrice-inspector" element={<EuroPriceInspector />} />
                 <Route path="/projects/europrice-inspector/privacy-policy" element={<EuroPricePrivacyPolicy />} />
+                <Route path="/projects/namevoxel" element={<NameVoxel />} />
                 <Route path="/prompts" element={<Prompts />} />
                 <Route path="/blog" element={<Blog />} />
               </Routes>

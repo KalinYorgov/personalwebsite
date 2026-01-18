@@ -9,10 +9,12 @@ const Prompts = () => {
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   
   useEffect(() => {
-    setPrompts(promptsData);
-    // Set the first prompt as selected by default
-    if (promptsData.length > 0) {
-      setSelectedPrompt(promptsData[0]);
+    // Sort prompts by id descending (newest first)
+    const sortedPrompts = [...promptsData].sort((a, b) => b.id - a.id);
+    setPrompts(sortedPrompts);
+    // Set the most recent prompt as selected by default
+    if (sortedPrompts.length > 0) {
+      setSelectedPrompt(sortedPrompts[0]);
     }
   }, []);
 
